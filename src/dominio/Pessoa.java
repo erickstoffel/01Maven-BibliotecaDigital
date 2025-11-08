@@ -5,6 +5,10 @@ public class Pessoa {
 	private int idade;
 	private String cpf;
 	
+	public Pessoa() {
+		
+	}
+	
 	public Pessoa(String nome, int idade, String cpf) {
 		super();
 		this.nome = nome;

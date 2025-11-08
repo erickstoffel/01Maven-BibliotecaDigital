@@ -10,6 +10,10 @@ public class Livro{
 	private Pessoa autor;
 	private boolean disponivel = true;
 	
+	public Livro() {
+		
+	}
+	
 	public Livro(String nome, Editora editora, Pessoa autor) {
 		super();
 		Objects.requireNonNull(nome, "Atributo Nome deve ser diferente de Null");

@@ -1,6 +1,5 @@
 package test;
 
-import java.util.*;
 import dominio.*;
 import service.BibliotecaManager;
 
@@ -43,5 +42,7 @@ public class Main {
 		} catch (BibliotecaException e) {
 			e.printStackTrace();
 		}
+		
+		bm.salvarJSON();
 	}
 }

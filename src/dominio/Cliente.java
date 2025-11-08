@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Cliente extends Pessoa {
 	private final String ID = UUID.randomUUID().toString();
 	private List<Livro> livrosRetirados = new ArrayList<Livro>();
-	
+		
 	public Cliente(String nome, int idade, String cpf){
 		super(nome, idade, cpf);
 	}

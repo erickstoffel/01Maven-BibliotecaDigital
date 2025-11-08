@@ -1,15 +1,31 @@
 package service;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dominio.*;
+
 
 public class BibliotecaManager {
 	private Repositorio<Livro> livros;
 	private Repositorio<Cliente> clientes;
 	
-	 public BibliotecaManager() {
-		 this.livros = new Repositorio<>();
-		 this.clientes = new Repositorio<>();
-	 }
+	//Jackson
+	Path arquivoLivros = Paths.get("D:\\workspace\\01Maven-BibliotecaDigital\\livros.json");
+	Path arquivoClientes = Paths.get("D:\\workspace\\01Maven-BibliotecaDigital\\clientes.json");
+	ObjectMapper conversor = new ObjectMapper();
+	
+	public BibliotecaManager() {
+		this.livros = new Repositorio<>();
+		this.clientes = new Repositorio<>();
+	}
+	
 	
 	public void retirarLivro(Livro livro, Cliente cliente) throws BibliotecaException {
 		if(!livro.isDisponivel()) {
@@ -45,6 +61,25 @@ public class BibliotecaManager {
 	}
 
 	public void salvarJSON() {
+		try {
+			String livrosJSON = conversor.writeValueAsString(livros);
+			String clientesJSON = conversor.writeValueAsString(clientes);
+			Files.createDirectories(arquivoLivros.getParent());
+			Files.createDirectories(arquivoClientes.getParent());
+			Files.write(arquivoLivros, livrosJSON.getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE);
+			Files.write(arquivoClientes, clientesJSON.getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void carregarJSON() {
+		try {
+			livros = (Repositorio<Livro>) conversor.readValue(arquivoLivros.toFile(), new TypeReference<Repositorio<Livro>>(){});
+			clientes = (Repositorio<Cliente>) conversor.readValue(arquivoClientes.toFile(), new TypeReference<Repositorio<Cliente>>(){});
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 		
 	}
 

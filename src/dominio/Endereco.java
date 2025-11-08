@@ -5,6 +5,10 @@ public class Endereco {
 	private String cidade;
 	private Estados estado;
 	
+	public Endereco() {
+		
+	}
+	
 	public Endereco(String bairro, String cidade, Estados estado) {
 		super();
 		this.bairro = bairro;

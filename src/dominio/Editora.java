@@ -4,6 +4,10 @@ public class Editora {
 	private String nome;
 	private Endereco endereco;
 	
+	public Editora() {
+		
+	}
+	
 	public Editora(String nome, Endereco endereco) {
 		super();
 		this.nome = nome;
