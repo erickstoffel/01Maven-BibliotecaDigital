@@ -2,22 +2,25 @@ package dominio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Cliente extends Pessoa {
-	private int id;
+	private final String ID = UUID.randomUUID().toString();
 	private List<Livro> livrosRetirados = new ArrayList<Livro>();
 	
-	public Cliente(String nome, int idade, String cpf, int id) {
+	public Cliente(String nome, int idade, String cpf){
 		super(nome, idade, cpf);
-		this.id = id;
 	}
 	
-	public int getId() {
-		return id;
+	public void listarLivrosRetirados() {
+		for (Livro livro : livrosRetirados) {
+			System.out.println(livro.getNome());
+		}
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	
+	
+	public String getId() {
+		return ID;
 	}
 
 	public List<Livro> getLivrosRetirados() {
