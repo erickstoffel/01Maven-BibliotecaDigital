@@ -8,9 +8,8 @@ public class Test02 {
 		BibliotecaManager bm = new BibliotecaManager();
 		
 		bm.carregarJSON();
-		bm.getClientes().getItens().get(0).getNome();
-		bm.getClientes().getItens().get(1).getNome();
-		bm.getLivros().getItens().get(0).getNome();
-		bm.getLivros().getItens().get(1).getNome();
+		System.out.println(bm.getClientes().getItens().get(0).getNome());
+		System.out.println(bm.getLivros().getItens().get(0).getNome());
+		System.out.println(bm.getLivros().getItens().get(1).getNome());
 	}
 }

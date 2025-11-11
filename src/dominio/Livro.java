@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Livro{
-	private final String ID = UUID.randomUUID().toString();
+	private String ID = UUID.randomUUID().toString();
 	private String nome;
 	private Editora editora;
 	private Pessoa autor;
@@ -24,8 +24,12 @@ public class Livro{
 		this.autor = autor;
 	}
 	
-	public String getId() {
+	public String getID() {
 		return ID;
+	}
+
+	public void setID(String iD) {
+		ID = iD;
 	}
 
 	public String getNome() {

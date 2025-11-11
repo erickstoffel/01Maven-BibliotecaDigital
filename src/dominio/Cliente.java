@@ -5,9 +5,13 @@ import java.util.List;
 import java.util.UUID;
 
 public class Cliente extends Pessoa {
-	private final String ID = UUID.randomUUID().toString();
+	private String ID = UUID.randomUUID().toString();
 	private List<Livro> livrosRetirados = new ArrayList<Livro>();
 		
+	public Cliente() {
+		
+	}
+	
 	public Cliente(String nome, int idade, String cpf){
 		super(nome, idade, cpf);
 	}
@@ -17,10 +21,13 @@ public class Cliente extends Pessoa {
 			System.out.println(livro.getNome());
 		}
 	}
-	
-	
-	public String getId() {
+
+	public String getID() {
 		return ID;
+	}
+
+	public void setID(String iD) {
+		ID = iD;
 	}
 
 	public List<Livro> getLivrosRetirados() {

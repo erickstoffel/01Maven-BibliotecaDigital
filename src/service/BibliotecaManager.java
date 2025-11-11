@@ -17,8 +17,8 @@ public class BibliotecaManager {
 	private Repositorio<Cliente> clientes;
 	
 	//Jackson
-	Path arquivoLivros = Paths.get("D:\\workspace\\01Maven-BibliotecaDigital\\livros.json");
-	Path arquivoClientes = Paths.get("D:\\workspace\\01Maven-BibliotecaDigital\\clientes.json");
+	Path arquivoLivros = Paths.get("C:\\Users\\erick.stoffel\\Desktop\\workspace\\01Maven-BibliotecaDigital\\livros.json");
+	Path arquivoClientes = Paths.get("C:\\Users\\erick.stoffel\\Desktop\\workspace\\01Maven-BibliotecaDigital\\clientes.json");
 	ObjectMapper conversor = new ObjectMapper();
 	
 	public BibliotecaManager() {
